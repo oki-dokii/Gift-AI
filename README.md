@@ -68,22 +68,29 @@ Building an AI-driven commerce engine presented several unique technical hurdles
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Technologies Used
 
-### Frontend
-- **React 18** (TypeScript)
-- **Vite** (Build Tool)
-- **Tailwind CSS** (Styling)
-- **Framer Motion** (Animations)
-- **Radix UI / Shadcn** (Accessible Components)
-- **TanStack Query** (Server State)
+### 🧠 Artificial Intelligence
+- **Google Gemini 1.5 Flash**: Our core reasoning engine. Chosen for its exceptional speed and ability to handle complex, personality-driven gift profiles.
+- **Natural Language Understanding**: Custom-engineered prompts that map vague human interests (like "cozy vibes") to specific, searchable product categories.
 
-### Backend
-- **Node.js & Express**
-- **Drizzle ORM**
-- **PostgreSQL** (Neon Serverless)
-- **Google Gemini 1.5 Flash API** (AI Engine)
-- **RapidAPI** (Real-Time Amazon Data)
+### 🎨 Frontend & Design
+- **React 18**: For a highly responsive, component-based user interface.
+- **Tailwind CSS**: Utility-first styling utilized for the custom design system, featuring glassmorphism and premium aesthetics.
+- **Framer Motion**: Powers the smooth micro-animations and page transitions that make the app feel "alive."
+- **Shadcn UI & Radix UI**: Foundation for our accessible, high-quality UI components like menus, drawers, and tabs.
+- **Lucide React**: For a consistent and modern iconography system throughout the platform.
+
+### ⚙️ Backend & Infrastructure
+- **Node.js & Express**: A robust and scalable REST API server architecture.
+- **PostgreSQL (Neon)**: A serverless relational database for storing user sessions, recipient profiles, and wishlists.
+- **Drizzle ORM**: Used for type-safe database queries and seamless schema migrations.
+- **Vite**: Modern build tooling that ensures rapid Entwicklung (HMR) and optimized production bundles.
+
+### 🔌 API Integrations
+- **RapidAPI (Amazon Real-Time Data)**: Provides live access to the Amazon catalog, ensuring recommendations are in-stock and correctly priced.
+- **Wouter**: A tiny, high-performance router for React that keeps the application bundle lightweight.
+- **TanStack Query (React Query)**: Manages server state, caching, and background data synchronization.
 
 ---
 
