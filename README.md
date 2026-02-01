@@ -36,6 +36,28 @@ Finding the gift is only half the battle. GiftAI's **Soulful Message Generator**
 
 ---
 
+## 🧱 Challenges I Ran Into
+
+Building an AI-driven commerce engine presented several unique technical hurdles:
+
+### 1. The "Hallucination" Gap
+**The Challenge**: Large Language Models (LLMs) like Gemini are great at brainstorming but can "hallucinate" products that don't actually exist or are discontinued.
+**The Solution**: I moved from a "direct recommendation" approach to a **two-step discovery pipeline**. The AI now generates highly specific search queries and reasoning, which are then validated against the **live Amazon API**. If the AI suggests a "Moon-Dust Infused Yoga Mat," the search step ensures we only show the closest *real* high-rated equivalent.
+
+### 2. API Latency & Rate Limiting
+**The Challenge**: Fetching 10-12 different products from Amazon in a single request can be slow and often triggers rate limits.
+**The Solution**: I implemented a **sequential fetching strategy with micro-delays (500ms)** and aggressive timeout handling (`Promise.race`). This ensures the UI remains responsive and we don't get blocked by external providers, while still delivering a rich set of results.
+
+### 3. Interest Specificity
+**The Challenge**: When a user inputs "Cricket," broad AI models tend to provide generic "Sports" items like generic gym bags.
+**The Solution**: I engineered a strict **System Prompt hierarchy** that forbids broad category mapping. The engine is forced to use the user's exact keywords in its search queries (e.g., "Cricket Batting Gloves" instead of "Sports Protective Gear"), ensuring the results feel laser-focused on the user's intent.
+
+### 4. Ensuring Zero-Downtime Reliability
+**The Challenge**: Total reliance on the LLM means the app breaks if the Gemini API is down.
+**The Solution**: I built a robust **Rule-Based Fallback System**. If the AI service fails for any reason, the app automatically switches to a pre-mapped catalog of interest-to-search-query pairs, ensuring the user *always* gets a helpful response.
+
+---
+
 ## ✨ Key Features
 
 - 🤖 **Dynamic AI Reasoning**: Unlike static lists, our AI analyzes the recipient's personality, interests, and the occasion to suggest truly meaningful gifts.
